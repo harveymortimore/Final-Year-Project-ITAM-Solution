@@ -1,0 +1,22 @@
+name: agent
+on:
+  pull_request:
+    paths: ["agent/**", ".github/workflows/agent.yml"]
+  push:
+    branches: [main]
+    paths: ["agent/**"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: agent
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: agent/go.mod
+      - run: go vet ./...
+      - run: go test ./...
+      - run: make build-all

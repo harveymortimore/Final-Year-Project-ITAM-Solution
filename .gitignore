@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.env
+*.log
+.DS_Store
+agent/bin/
+api/generated/
+# Docs
+.venv/
+site/

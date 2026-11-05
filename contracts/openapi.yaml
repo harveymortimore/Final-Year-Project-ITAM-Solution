@@ -1,0 +1,20 @@
+openapi: 3.1.0
+info:
+  title: Asset Manager API
+  version: 0.1.0
+  description: REST API for the Asset Management & Deployment System.
+paths:
+  /health:
+    get:
+      summary: Health check
+      responses:
+        "200":
+          description: Service is up
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok

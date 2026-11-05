@@ -1,0 +1,20 @@
+{
+  "name": "asset-manager",
+  "private": true,
+  "workspaces": [
+    "api",
+    "web",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:db": "docker compose -f deploy/docker-compose.yml up db -d",
+    "lint": "npm run lint --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "docs:serve": "mkdocs serve",
+    "docs:build": "mkdocs build --strict",
+    "api:lint": "redocly lint contracts/openapi.yaml"
+  },
+  "devDependencies": {
+    "@redocly/cli": "^2.76.0"
+  }
+}
